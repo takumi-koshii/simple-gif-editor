@@ -2,6 +2,8 @@
 
 macOS 向けのシンプルな GIF 編集アプリです。GIF ファイルに対して矩形クロップ、矩形モザイク、フレーム削減、フレーム削除を行い、GIF として書き出します。
 
+<img width="1200" height="800" alt="Kapture 2026-04-23 at 10 58 56-2" src="https://github.com/user-attachments/assets/94555fcb-e557-494b-a9a0-f04ee2f1ad0b" />
+
 ## 機能
 
 - **GIF 読み込み**: GIF ファイルを読み込み、即座にフレームを抽出します
