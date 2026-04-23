@@ -1,0 +1,36 @@
+Third-Party Licenses
+====================
+
+This application bundles or depends on the following third-party software.
+
+FFmpeg (ffmpeg-static)
+  License: GPL-2.0-or-later
+  URL: https://ffmpeg.org/
+  Note: Bundled as a prebuilt binary via the ffmpeg-static npm package.
+        The inclusion of FFmpeg (GPL-2.0) requires this application to be
+        distributed under GPL-2.0-or-later.
+
+ffprobe-static
+  License: MIT
+  URL: https://github.com/joshwnj/ffprobe-static
+
+sharp
+  License: Apache-2.0
+  URL: https://github.com/lovell/sharp
+  Note: Uses libvips (LGPL-2.1) internally.
+
+Electron
+  License: MIT
+  URL: https://www.electronjs.org/
+
+Vite
+  License: MIT
+  URL: https://vitejs.dev/
+
+electron-builder
+  License: MIT
+  URL: https://github.com/electron-userland/electron-builder
+
+electron-is-dev
+  License: MIT
+  URL: https://github.com/sindresorhus/electron-is-dev
