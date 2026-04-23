@@ -1,0 +1,19 @@
+appId: com.takumikoshii.simple-gif-editor
+productName: Simple GIF Editor
+copyright: "© 2026 Takumi KOSHII All rights reserved."
+directories:
+  output: out
+  buildResources: resources
+files:
+  - dist/**/*
+  - node_modules/**/*
+  - package.json
+mac:
+  target:
+    - target: dir
+      arch:
+        - arm64
+  category: public.app-category.video
+extraResources:
+  - from: node_modules/ffmpeg-static/ffmpeg
+    to: ffmpeg

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; media-src 'self' file: data:; img-src 'self' file: data:" />
+  <title>Simple GIF Editor</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Toolbar -->
+    <div id="toolbar">
+      <button id="btn-open" title="Open GIF (⌘O)">Open GIF ⌘O</button>
+      <button id="btn-undo" disabled title="Undo (⌘Z)">Undo ⌘Z</button>
+      <button id="btn-redo" disabled title="Redo (⌘Y)">Redo ⌘Y</button>
+      <button id="btn-delete" disabled title="Delete selected frames (⌫)">Delete Frames ⌫</button>
+      <button id="btn-export" disabled title="Export GIF (⌘E)">Export GIF ⌘E</button>
+      <span id="status-text">No file loaded</span>
+    </div>
+
+    <!-- Preview area -->
+    <div id="preview-container">
+      <img id="gif-preview" alt="GIF Preview" />
+      <canvas id="overlay-canvas"></canvas>
+      <div id="preview-controls">
+        <button id="btn-play" disabled>Play</button>
+      </div>
+    </div>
+
+    <!-- Frame card timeline -->
+    <div id="frame-timeline">
+      <div id="frame-cards"></div>
+    </div>
+
+    <!-- Controls -->
+    <div id="controls-panel">
+      <div class="control-group">
+        <label>Crop</label>
+        <button id="btn-crop-toggle" disabled>Draw Crop</button>
+        <button id="btn-crop-apply" disabled>Apply Crop</button>
+      </div>
+      <div class="control-group">
+        <label>Mosaic</label>
+        <button id="btn-mosaic-toggle" disabled>Draw Mosaic</button>
+        <div id="mosaic-controls" style="display:none">
+          <span id="mosaic-range-label">Frames: all</span>
+          <button id="btn-mosaic-selected">Selection Only</button>
+          <button id="btn-mosaic-apply" disabled>Apply Mosaic</button>
+        </div>
+      </div>
+      <div class="control-group">
+        <label>Reduce</label>
+        <button id="btn-reduce-2" disabled>1/2</button>
+        <button id="btn-reduce-4" disabled>1/4</button>
+        <button id="btn-reduce-8" disabled>1/8</button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="app-footer">
+      <span>Simple GIF Editor v0.1.0</span>
+      <span>&copy; 2026 Takumi KOSHII All rights reserved.</span>
+    </div>
+
+    <!-- Progress overlay -->
+    <div id="progress-overlay" style="display:none">
+      <div id="progress-bar"><div id="progress-fill"></div></div>
+      <span id="progress-text">Processing...</span>
+    </div>
+  </div>
+  <script type="module" src="./main.ts"></script>
+</body>
+</html>
