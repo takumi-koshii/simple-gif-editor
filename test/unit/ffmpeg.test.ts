@@ -36,6 +36,21 @@ describe('ffmpeg', () => {
       const p = getFFprobePath();
       expect(fs.existsSync(p)).toBe(true);
     });
+
+    it('returns a binary matching the host architecture on macOS', () => {
+      if (process.platform !== 'darwin') return;
+      const p = getFFprobePath();
+      const fd = fs.openSync(p, 'r');
+      const header = Buffer.alloc(8);
+      fs.readSync(fd, header, 0, 8, 0);
+      fs.closeSync(fd);
+      // Mach-O 64-bit magic: 0xfeedfacf (little-endian)
+      expect(header.readUInt32LE(0)).toBe(0xfeedfacf);
+      // CPU type at offset 4. arm64 = 0x0100000c, x86_64 = 0x01000007
+      const cpuType = header.readUInt32LE(4);
+      const expectedCpuType = process.arch === 'arm64' ? 0x0100000c : 0x01000007;
+      expect(cpuType).toBe(expectedCpuType);
+    });
   });
 
   describe('probe', () => {

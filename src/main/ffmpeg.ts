@@ -11,7 +11,7 @@ export function getFFmpegPath(): string {
 
 export function getFFprobePath(): string {
   // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const p = require('ffprobe-static') as { path: string };
+  const p = require('@ffprobe-installer/ffprobe') as { path: string };
   return p.path;
 }
 

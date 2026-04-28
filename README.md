@@ -70,7 +70,7 @@ npm run package
 | アプリシェル | Electron |
 | 言語 | TypeScript (strict) |
 | レンダラバンドラ | Vite |
-| GIF/画像処理 | FFmpeg (ffmpeg-static でバンドル) |
+| GIF/画像処理 | FFmpeg (ffmpeg-static および @ffprobe-installer/ffprobe でバンドル) |
 | モザイク処理 | sharp |
 | テスト | Vitest |
 | パッケージング | electron-builder |
@@ -82,6 +82,17 @@ GPL-2.0-or-later. 詳細は [LICENSE](LICENSE) を参照してください。
 本アプリは FFmpeg (GPL-2.0) をバンドルしています。依存ライブラリのライセンス情報は [THIRD-PARTY-LICENSES](THIRD-PARTY-LICENSES) を参照してください。
 
 ## 更新情報
+
+### v1.0.0
+
+- ffprobe バイナリの差し替え
+  - `ffprobe-static@3.1.0` の `darwin/arm64` バイナリが実態として x86_64 であり、 Apple Silicon の macOS で GIF を読み込むたびに 「Intel プロセッサ向けアプリ」 の通知が表示される事象に対応しました。
+  - 依存を `@ffprobe-installer/ffprobe@2.1.2` に差し替え、 同梱バイナリを正しい arm64 にしました。
+- THIRD-PARTY-LICENSES の更新
+  - 上記差し替えに伴い、 ffprobe バイナリのライセンスを LGPL-2.1-or-later として明記しました。
+  - ffmpeg-static の npm パッケージ自体のライセンスを GPL-3.0-or-later として正しく記載しました ( ffmpeg バイナリ自体は引き続き GPL-2.0-or-later です )。
+- アーキテクチャ整合性テストの追加
+  - 同種の事象を将来検出できるよう、 同梱 ffprobe バイナリの Mach-O ヘッダを検査するユニットテストを追加しました。
 
 ### v0.1.0
 
